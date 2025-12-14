@@ -408,8 +408,8 @@ class SexualitySpectrumApp {
             this.currentQuestionIndex = 0;
             this.responses = [];
             localStorage.removeItem('quizProgress');
-            this.currentPage = 'landing';
-            this.showPage('landing');
+            this.currentPage = 'quiz';
+            this.startQuiz();
         }
     }
 
@@ -564,6 +564,12 @@ class SexualitySpectrumApp {
                 
                 // Draw the 3D visualization onto our export canvas
                 ctx.drawImage(webglCanvas, 100, 480, 1000, 750);
+                
+                // Add archetype reference dots legend
+                ctx.fillStyle = '#fb923c';
+                ctx.font = 'bold 16px Arial';
+                ctx.textAlign = 'left';
+                ctx.fillText('Legend: Your Position (large) | Other Archetypes (small dots)', 100, 1250);
             } catch (error) {
                 console.error('Error capturing 3D visualization:', error);
                 // Draw placeholder if capture fails
@@ -577,7 +583,9 @@ class SexualitySpectrumApp {
         }
 
         // Get interpretation text
-        const interpretationText = document.getElementById('interpretation-text').textContent;
+        const interpretationText = document.getElementById('interpretation-text').textContent
+            .replace(/\s+/g, ' ')  // Replace multiple spaces/newlines with single space
+            .trim();  // Remove leading/trailing whitespace
         
         // Draw interpretation (truncated if too long)
         ctx.fillStyle = '#fb923c';
@@ -589,7 +597,7 @@ class SexualitySpectrumApp {
         ctx.font = '20px Arial';
         const maxWidth = 1000;
         const lineHeight = 28;
-        const words = interpretationText.substring(0, 400).split(' ');
+        const words = interpretationText.substring(0, 500).split(' ').filter(w => w.length > 0);
         let line = '';
         let y = 1340;
 
@@ -597,7 +605,7 @@ class SexualitySpectrumApp {
             const testLine = line + words[n] + ' ';
             const metrics = ctx.measureText(testLine);
             if (metrics.width > maxWidth && n > 0) {
-                ctx.fillText(line, 100, y);
+                ctx.fillText(line.trim(), 100, y);
                 line = words[n] + ' ';
                 y += lineHeight;
                 if (y > 1520) break;
@@ -605,8 +613,8 @@ class SexualitySpectrumApp {
                 line = testLine;
             }
         }
-        if (y <= 1520) {
-            ctx.fillText(line + '...', 100, y);
+        if (y <= 1520 && line.trim()) {
+            ctx.fillText(line.trim() + '...', 100, y);
         }
 
         // Footer
