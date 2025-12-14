@@ -721,7 +721,10 @@ button {
 }
 
 .interpretation-text {
-    line-height: 1.6;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    letter-spacing: 0.01em;
 }
 
 .axis-interpretations {
@@ -1243,19 +1246,25 @@ button {
 
 .interpretation-section h3 {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
 }
 
 .interpretation-summary {
-    line-height: 1.8;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: rgba(229, 231, 235, 0.95);
 }
 
 .archetype-description {
-    background: rgba(0, 0, 0, 0.2);
-    border-left: 3px solid var(--primary-color);
-    padding: 1rem 1.5rem;
-    margin: 1rem 0;
-    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 4px solid var(--primary-color);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(229, 231, 235, 0.95);
 }
 
 .axis-interpretations {

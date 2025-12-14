@@ -88,6 +88,11 @@ class SexualitySpectrumApp {
                 this.visualizer.downloadImage();
             }
         });
+        
+        // Export results button
+        document.getElementById('export-results-btn').addEventListener('click', () => {
+            this.exportResults();
+        });
 
         // Compatibility toggle
         document.getElementById('compatibility-viz-toggle').addEventListener('change', (e) => {
@@ -494,6 +499,133 @@ class SexualitySpectrumApp {
         this.responses = [];
         this.currentPage = 'landing';
         this.showPage('landing');
+    }
+
+    exportResults() {
+        // Create a canvas to draw the export graphic
+        const canvas = document.createElement('canvas');
+        canvas.width = 1200;
+        canvas.height = 1600;
+        const ctx = canvas.getContext('2d');
+
+        // Background gradient
+        const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        gradient.addColorStop(0, '#1a0b2e');
+        gradient.addColorStop(0.5, '#16041a');
+        gradient.addColorStop(1, '#0f0a1a');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Title
+        ctx.fillStyle = '#c084fc';
+        ctx.font = 'bold 48px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('Sexuality Spectrum Assessment', canvas.width / 2, 80);
+
+        // Get archetype info
+        const archetypeName = document.getElementById('archetype-name').textContent;
+        const archetypeEmoji = document.getElementById('archetype-emoji').textContent;
+        const archetypeSubtitle = document.getElementById('archetype-subtitle').textContent;
+
+        // Archetype name
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 64px Arial';
+        ctx.fillText(archetypeEmoji + ' ' + archetypeName, canvas.width / 2, 180);
+
+        // Subtitle
+        ctx.fillStyle = '#e5e7eb';
+        ctx.font = '32px Arial';
+        ctx.fillText(archetypeSubtitle, canvas.width / 2, 230);
+
+        // Coordinates
+        const coordX = document.getElementById('coord-x').textContent;
+        const coordY = document.getElementById('coord-y').textContent;
+        const coordZ = document.getElementById('coord-z').textContent;
+
+        ctx.fillStyle = '#fb923c';
+        ctx.font = 'bold 28px Arial';
+        ctx.textAlign = 'left';
+        ctx.fillText('3D Coordinates:', 100, 300);
+
+        ctx.fillStyle = '#e5e7eb';
+        ctx.font = '24px Arial';
+        ctx.fillText(`X-Axis (Masculine ↔ Feminine): ${coordX}`, 100, 345);
+        ctx.fillText(`Y-Axis (Dominant ↔ Submissive): ${coordY}`, 100, 385);
+        ctx.fillText(`Z-Axis (Romantic ↔ Physical): ${coordZ}`, 100, 425);
+
+        // Capture the 3D visualization
+        if (this.visualizer && this.visualizer.renderer) {
+            try {
+                // Render the scene
+                this.visualizer.renderer.render(this.visualizer.scene, this.visualizer.camera);
+                
+                // Get the WebGL canvas
+                const webglCanvas = this.visualizer.renderer.domElement;
+                
+                // Draw the 3D visualization onto our export canvas
+                ctx.drawImage(webglCanvas, 100, 480, 1000, 750);
+            } catch (error) {
+                console.error('Error capturing 3D visualization:', error);
+                // Draw placeholder if capture fails
+                ctx.fillStyle = 'rgba(192, 132, 252, 0.2)';
+                ctx.fillRect(100, 480, 1000, 750);
+                ctx.fillStyle = '#c084fc';
+                ctx.font = '32px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('3D Visualization', canvas.width / 2, 855);
+            }
+        }
+
+        // Get interpretation text
+        const interpretationText = document.getElementById('interpretation-text').textContent;
+        
+        // Draw interpretation (truncated if too long)
+        ctx.fillStyle = '#fb923c';
+        ctx.font = 'bold 28px Arial';
+        ctx.textAlign = 'left';
+        ctx.fillText('Interpretation:', 100, 1300);
+
+        ctx.fillStyle = '#e5e7eb';
+        ctx.font = '20px Arial';
+        const maxWidth = 1000;
+        const lineHeight = 28;
+        const words = interpretationText.substring(0, 400).split(' ');
+        let line = '';
+        let y = 1340;
+
+        for (let n = 0; n < words.length; n++) {
+            const testLine = line + words[n] + ' ';
+            const metrics = ctx.measureText(testLine);
+            if (metrics.width > maxWidth && n > 0) {
+                ctx.fillText(line, 100, y);
+                line = words[n] + ' ';
+                y += lineHeight;
+                if (y > 1520) break;
+            } else {
+                line = testLine;
+            }
+        }
+        if (y <= 1520) {
+            ctx.fillText(line + '...', 100, y);
+        }
+
+        // Footer
+        ctx.fillStyle = '#c084fc';
+        ctx.font = '18px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('Generated from Sexuality Spectrum Assessment', canvas.width / 2, 1560);
+
+        // Download the image
+        canvas.toBlob((blob) => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `sexuality-spectrum-results-${Date.now()}.png`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
     }
 
     saveProgress() {

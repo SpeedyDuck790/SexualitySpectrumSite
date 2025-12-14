@@ -274,35 +274,33 @@ class QuizScorer {
             z: this.getAxisInterpretation('z', normalizedScores.z)
         };
 
-        const summary = `
-            <div class="interpretation-summary">
-                <p>Your position in the 3D spectrum reveals a unique profile shaped by your preferences across three key dimensions of intimacy and attraction.</p>
-                
-                <div class="archetype-description">
-                    <p><strong>Core Values:</strong> ${archetype.description}</p>
-                </div>
-                
-                <div class="axis-interpretations">
-                    <div class="axis-interpretation">
-                        <h4>Gender Expression (X-Axis)</h4>
-                        <p>Score: <strong>${scores.x.toFixed(1)}</strong> (Normalized: ${normalizedScores.x.toFixed(1)}) - ${interpretations.x}</p>
-                        <p class="axis-description">This reflects your comfort with traditionally masculine or feminine traits and behaviors.</p>
-                    </div>
-                    
-                    <div class="axis-interpretation">
-                        <h4>Power Dynamics (Y-Axis)</h4>
-                        <p>Score: <strong>${scores.y.toFixed(1)}</strong> (Normalized: ${normalizedScores.y.toFixed(1)}) - ${interpretations.y}</p>
-                        <p class="axis-description">This indicates your preferences regarding control and power dynamics in intimate relationships.</p>
-                    </div>
-                    
-                    <div class="axis-interpretation">
-                        <h4>Connection Style (Z-Axis)</h4>
-                        <p>Score: <strong>${scores.z.toFixed(1)}</strong> (Normalized: ${normalizedScores.z.toFixed(1)}) - ${interpretations.z}</p>
-                        <p class="axis-description">This shows whether you prioritize emotional connection versus physical chemistry.</p>
-                    </div>
-                </div>
-            </div>
-        `;
+        const summary = `<div class="interpretation-summary">
+<p>Your position in the 3D spectrum reveals a unique profile shaped by your preferences across three key dimensions of intimacy and attraction.</p>
+
+<div class="archetype-description">
+<p><strong>Core Values:</strong> ${archetype.description}</p>
+</div>
+
+<div class="axis-interpretations">
+<div class="axis-interpretation">
+<h4>Gender Expression (X-Axis)</h4>
+<p>Score: <strong>${scores.x.toFixed(1)}</strong> (Normalized: ${normalizedScores.x.toFixed(1)}) - ${interpretations.x}</p>
+<p class="axis-description">This reflects your comfort with traditionally masculine or feminine traits and behaviors.</p>
+</div>
+
+<div class="axis-interpretation">
+<h4>Power Dynamics (Y-Axis)</h4>
+<p>Score: <strong>${scores.y.toFixed(1)}</strong> (Normalized: ${normalizedScores.y.toFixed(1)}) - ${interpretations.y}</p>
+<p class="axis-description">This indicates your preferences regarding control and power dynamics in intimate relationships.</p>
+</div>
+
+<div class="axis-interpretation">
+<h4>Connection Style (Z-Axis)</h4>
+<p>Score: <strong>${scores.z.toFixed(1)}</strong> (Normalized: ${normalizedScores.z.toFixed(1)}) - ${interpretations.z}</p>
+<p class="axis-description">This shows whether you prioritize emotional connection versus physical chemistry.</p>
+</div>
+</div>
+</div>`;
 
         return {
             scores, // Keep raw scores for reference
