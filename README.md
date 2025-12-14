@@ -1,4 +1,4 @@
-# Sexuality Spectrum Assessment
+# Sexuality Spectrum Quiz Site
 
 Interactive 3D sexuality spectrum quiz with real-time visualization and archetype matching.
 
