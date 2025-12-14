@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "text": "I am comfortable expressing my emotions to others.",
+    "axis": "x",
+    "reverse": false
+  },
+  {
+    "id": 2,
+    "text": "I enjoy taking the lead in group situations.",
+    "axis": "x",
+    "reverse": true
+  },
+  {
+    "id": 3,
+    "text": "I value nurturing and supporting others.",
+    "axis": "x",
+    "reverse": false
+  },
+  {
+    "id": 4,
+    "text": "I enjoy taking charge in group settings.",
+    "axis": "y",
+    "reverse": true
+  },
+  {
+    "id": 5,
+    "text": "I often defer to others when making decisions.",
+    "axis": "y",
+    "reverse": false
+  },
+  {
+    "id": 6,
+    "text": "I am comfortable voicing my opinions, even in disagreement.",
+    "axis": "y",
+    "reverse": true
+  },
+  {
+    "id": 7,
+    "text": "I desire deep emotional closeness in my relationships.",
+    "axis": "z",
+    "reverse": true
+  },
+  {
+    "id": 8,
+    "text": "I am primarily interested in physical intimacy with my partners.",
+    "axis": "z",
+    "reverse": false
+  }
+]

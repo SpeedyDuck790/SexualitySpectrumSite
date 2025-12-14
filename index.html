@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sexuality Spectrum Assessment</title>
+    <meta name="description" content="Discover your unique position on the three-dimensional sexuality spectrum">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <section id="landing-page" class="page active">
+        <div class="container">
+            <header>
+                <h1>Sexuality Spectrum Assessment</h1>
+            </header>
+            
+            <div class="intro-content">
+                <div class="landing-split-layout">
+                    <!-- Archetype Map Visualization -->
+                    <div class="archetype-map-section">
+                        <h2>27 Archetypes</h2>
+                        <p class="archetype-map-desc">Explore where each personality type is positioned in the 3D spectrum:</p>
+                        <div id="archetype-map-container" class="archetype-viz-container"></div>
+                        <p class="viz-hint">Drag to rotate • Scroll to zoom</p>
+                    </div>
+                    
+                    <!-- Quiz Selection -->
+                    <div class="version-selector">
+                        <h2>Choose Your Assessment</h2>
+                        <div class="version-cards-vertical">
+                            <label class="version-card">
+                                <input type="radio" name="quiz-version" value="demo" checked>
+                                <div class="version-card-content">
+                                    <h3>Quick Demo</h3>
+                                    <p class="version-stats">8 questions • 1-2 minutes</p>
+                                    <p>Fast screening tool for a quick overview.</p>
+                                </div>
+                            </label>
+                            
+                            <label class="version-card recommended">
+                                <input type="radio" name="quiz-version" value="middle">
+                                <div class="version-card-content">
+                                    <span class="badge">Recommended</span>
+                                    <h3>Standard</h3>
+                                    <p class="version-stats">36 questions • 5-8 minutes</p>
+                                    <p>Balanced assessment for most users.</p>
+                                </div>
+                            </label>
+                            
+                            <label class="version-card">
+                                <input type="radio" name="quiz-version" value="comprehensive">
+                                <div class="version-card-content">
+                                    <h3>Comprehensive</h3>
+                                    <p class="version-stats">60 questions • 10-15 minutes</p>
+                                    <p>Research-grade detailed profiling.</p>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <div class="cta-section">
+                            <button id="start-quiz-btn" class="primary-button">Start Assessment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Page -->
+    <section id="quiz-page" class="page">
+        <div class="container">
+            <div class="quiz-header">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <div id="progress-text" class="progress-text">Question 1 of 36</div>
+                </div>
+            </div>
+            
+            <div id="quiz-content" class="quiz-content">
+                <!-- Questions will be inserted here dynamically -->
+            </div>
+            
+            <div class="quiz-navigation">
+                <button id="prev-btn" class="secondary-button" disabled>Previous</button>
+                <button id="next-btn" class="primary-button">Next</button>
+                <button id="submit-btn" class="primary-button" style="display: none;">View Results</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Page -->
+    <section id="results-page" class="page">
+        <div class="container">
+            <header class="results-header">
+                <h2>Your Results</h2>
+                <div class="results-header-actions">
+                    <button id="export-results-btn" class="primary-button">📄 Export Results</button>
+                    <button id="back-to-start-btn" class="secondary-button">← Back to Start</button>
+                    <button id="restart-btn" class="secondary-button">Take Again</button>
+                </div>
+            </header>
+            
+            <div class="results-content">
+                <!-- Archetype Hero Card -->
+                <div class="archetype-hero-card">
+                    <div class="archetype-badge">
+                        <span id="archetype-emoji" class="archetype-emoji">✨</span>
+                        <span id="archetype-name" class="archetype-name">Your Archetype</span>
+                    </div>
+                    <div id="archetype-subtitle" class="archetype-subtitle">Balanced • Switch • Balanced</div>
+                </div>
+
+                <!-- Split Layout: Visualization + Type Info -->
+                <div class="results-split-layout">
+                    <!-- Left: 3D Visualization -->
+                    <div class="visualization-panel">
+                        <h3>Your 3D Position</h3>
+                        <div id="threejs-container" class="threejs-container"></div>
+                        <div class="coordinates-display">
+                            <div><span class="coord-label">X-Axis (Masculine ↔ Feminine):</span> <strong id="coord-x">0</strong></div>
+                            <div><span class="coord-label">Y-Axis (Dominant ↔ Submissive):</span> <strong id="coord-y">0</strong></div>
+                            <div><span class="coord-label">Z-Axis (Romantic ↔ Physical):</span> <strong id="coord-z">0</strong></div>
+                        </div>
+                        <div class="visualization-controls">
+                            <button id="reset-view-btn" class="secondary-button">Reset View</button>
+                            <button id="download-btn" class="primary-button">Download Image</button>
+                        </div>
+                        <div class="compatibility-toggle">
+                            <label class="toggle-label">
+                                <input type="checkbox" id="compatibility-viz-toggle">
+                                <span class="toggle-slider"></span>
+                                <span class="toggle-text">Show Compatibility Zones</span>
+                            </label>
+                            <p class="experimental-warning">⚠️ Experimental Feature: Compatibility calculations are theoretical and should not be considered reliable for real relationship decisions.</p>
+                        </div>
+                    </div>
+
+                    <!-- Right: Type Info & Traits -->
+                    <div class="type-info-panel">
+                        <div class="type-card-main">
+                            <h3>Your Archetype</h3>
+                            <div id="archetype-description" class="archetype-full-description">
+                                <p>Your unique combination creates a one-of-a-kind profile.</p>
+                            </div>
+                            
+                            <h4 style="margin-top: 1.5rem;">Primary Traits</h4>
+                            <div id="axis-scores-list" class="axis-scores-list">
+                                <!-- Axis interpretations will be inserted here -->
+                            </div>
+                        </div>
+                        
+                        <div class="type-family-section">
+                            <h3>Compatible Archetypes</h3>
+                            <p class="compatibility-note">Based on complementarity (power dynamics) and similarity (expression & connection style)</p>
+                            <p class="interaction-hint">💡 Click any archetype to highlight its location on the 3D graph. Double-click the graph to clear.</p>
+                            <div id="compatible-types-grid" class="compatible-types-grid">
+                                <!-- Compatible archetypes will be inserted here -->
+                            </div>
+                            <div class="compatibility-test-cta">
+                                <button id="compatibility-test-btn" class="secondary-button" disabled>Compatibility Test (To Be Implemented)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Full-width interpretation -->
+                <div class="interpretation-section">
+                    <h3>Understanding Your Results</h3>
+                    <div id="interpretation-text" class="interpretation-text">
+                        <!-- Detailed interpretation will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Application Scripts -->
+    <script src="js/questions.js"></script>
+    <script src="js/scoring.js"></script>
+    <script src="js/visualization.js"></script>
+    <script src="js/archetype-map.js"></script>
+    <script src="js/app.js"></script>
+    
+    <!-- Initialize Archetype Map on Landing Page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the archetype map visualizer
+            if (document.getElementById('archetype-map-container')) {
+                const archetypeMap = new ArchetypeMapVisualizer('archetype-map-container');
+            }
+        });
+    </script>
+</body>
+</html>

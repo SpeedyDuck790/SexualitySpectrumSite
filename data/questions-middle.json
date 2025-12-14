@@ -1,0 +1,218 @@
+[
+  {
+    "id": 1,
+    "text": "I am comfortable expressing my emotions to others.",
+    "axis": "x",
+    "reverse": false
+  },
+  {
+    "id": 2,
+    "text": "I enjoy taking the lead in group situations.",
+    "axis": "x",
+    "reverse": true
+  },
+  {
+    "id": 3,
+    "text": "I value nurturing and supporting others.",
+    "axis": "x",
+    "reverse": false
+  },
+  {
+    "id": 4,
+    "text": "I am interested in activities that are considered creative or artistic.",
+    "axis": "x",
+    "reverse": false
+  },
+  {
+    "id": 5,
+    "text": "I prefer to make decisions based on logic rather than feelings.",
+    "axis": "x",
+    "reverse": true
+  },
+  {
+    "id": 6,
+    "text": "I am attentive to my appearance and grooming.",
+    "axis": "x",
+    "reverse": false
+  },
+  {
+    "id": 7,
+    "text": "I am comfortable asserting my opinions.",
+    "axis": "x",
+    "reverse": true
+  },
+  {
+    "id": 8,
+    "text": "I enjoy discussing personal feelings with close friends.",
+    "axis": "x",
+    "reverse": false
+  },
+  {
+    "id": 9,
+    "text": "I am drawn to leadership roles in my community or workplace.",
+    "axis": "x",
+    "reverse": true
+  },
+  {
+    "id": 10,
+    "text": "I find satisfaction in helping others resolve conflicts.",
+    "axis": "x",
+    "reverse": false
+  },
+  {
+    "id": 11,
+    "text": "I am interested in sports or physical activities that require strength or endurance.",
+    "axis": "x",
+    "reverse": true
+  },
+  {
+    "id": 12,
+    "text": "I appreciate beauty in art, music, or nature.",
+    "axis": "x",
+    "reverse": false
+  },
+  {
+    "id": 13,
+    "text": "I enjoy taking charge in group settings.",
+    "axis": "y",
+    "reverse": true
+  },
+  {
+    "id": 14,
+    "text": "I often defer to others when making decisions.",
+    "axis": "y",
+    "reverse": false
+  },
+  {
+    "id": 15,
+    "text": "I am comfortable voicing my opinions, even in disagreement.",
+    "axis": "y",
+    "reverse": true
+  },
+  {
+    "id": 16,
+    "text": "I tend to avoid conflict, even if it means not expressing my true feelings.",
+    "axis": "y",
+    "reverse": false
+  },
+  {
+    "id": 17,
+    "text": "I am willing to take initiative to solve problems.",
+    "axis": "y",
+    "reverse": true
+  },
+  {
+    "id": 18,
+    "text": "I rely on others to guide me in unfamiliar situations.",
+    "axis": "y",
+    "reverse": false
+  },
+  {
+    "id": 19,
+    "text": "I am assertive when negotiating for my needs.",
+    "axis": "y",
+    "reverse": true
+  },
+  {
+    "id": 20,
+    "text": "I find it difficult to say \"no\" to requests from others.",
+    "axis": "y",
+    "reverse": false
+  },
+  {
+    "id": 21,
+    "text": "I enjoy being recognized for leadership or achievement.",
+    "axis": "y",
+    "reverse": true
+  },
+  {
+    "id": 22,
+    "text": "I am sensitive to criticism from authority figures.",
+    "axis": "y",
+    "reverse": false
+  },
+  {
+    "id": 23,
+    "text": "I am comfortable giving instructions or feedback to others.",
+    "axis": "y",
+    "reverse": true
+  },
+  {
+    "id": 24,
+    "text": "I prefer to follow established rules rather than challenge them.",
+    "axis": "y",
+    "reverse": false
+  },
+  {
+    "id": 25,
+    "text": "I desire deep emotional closeness in my relationships.",
+    "axis": "z",
+    "reverse": true
+  },
+  {
+    "id": 26,
+    "text": "I am primarily interested in physical intimacy with my partners.",
+    "axis": "z",
+    "reverse": false
+  },
+  {
+    "id": 27,
+    "text": "I value spending quality time and sharing personal thoughts with someone I care about.",
+    "axis": "z",
+    "reverse": true
+  },
+  {
+    "id": 28,
+    "text": "I am attracted to people based on their physical appearance.",
+    "axis": "z",
+    "reverse": false
+  },
+  {
+    "id": 29,
+    "text": "I seek relationships that involve long-term commitment and companionship.",
+    "axis": "z",
+    "reverse": true
+  },
+  {
+    "id": 30,
+    "text": "I am comfortable expressing affection through sexual activity.",
+    "axis": "z",
+    "reverse": false
+  },
+  {
+    "id": 31,
+    "text": "I enjoy romantic gestures such as giving or receiving love notes or gifts.",
+    "axis": "z",
+    "reverse": true
+  },
+  {
+    "id": 32,
+    "text": "I prioritize sexual compatibility when choosing a partner.",
+    "axis": "z",
+    "reverse": false
+  },
+  {
+    "id": 33,
+    "text": "I feel fulfilled by emotional intimacy, even without sexual activity.",
+    "axis": "z",
+    "reverse": true
+  },
+  {
+    "id": 34,
+    "text": "I am interested in exploring new sexual experiences with my partner.",
+    "axis": "z",
+    "reverse": false
+  },
+  {
+    "id": 35,
+    "text": "I desire to build a life and future together with someone special.",
+    "axis": "z",
+    "reverse": true
+  },
+  {
+    "id": 36,
+    "text": "I am more interested in the excitement of sexual attraction than in emotional connection.",
+    "axis": "z",
+    "reverse": false
+  }
+]
